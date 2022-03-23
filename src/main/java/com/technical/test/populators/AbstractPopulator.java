@@ -1,4 +1,4 @@
-package com.technical.test.mapper;
+package com.technical.test.populators;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -14,8 +14,8 @@ import java.util.Set;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.technical.test.dto.AbstractModel;
-import com.technical.test.entity.AbstractEntity;
+import com.technical.test.entities.AbstractEntity;
+import com.technical.test.models.AbstractModel;
 
 
 public abstract class AbstractPopulator <E extends AbstractEntity, M extends AbstractModel>{

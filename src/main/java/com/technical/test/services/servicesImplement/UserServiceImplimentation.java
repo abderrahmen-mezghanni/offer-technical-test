@@ -1,14 +1,15 @@
-package com.technical.test.service;
+package com.technical.test.services.servicesImplement;
 
 import javax.persistence.EntityNotFoundException;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.technical.test.dto.UserDto;
-import com.technical.test.entity.User;
-import com.technical.test.mapper.UserMapper;
-import com.technical.test.repository.UserRepository;
+import com.technical.test.entities.User;
+import com.technical.test.models.UserModel;
+import com.technical.test.populators.UserPopulator;
+import com.technical.test.repositories.UserRepository;
+import com.technical.test.services.UserService;
 
 @Service
 public class UserServiceImplimentation implements UserService {
@@ -17,10 +18,10 @@ public class UserServiceImplimentation implements UserService {
 	private UserRepository userRepository;
 
 	@Autowired
-	private UserMapper userMapper;
+	private UserPopulator userMapper;
 
 	@Override
-	public UserDto getuser(Long id) {
+	public UserModel getuser(Long id) {
 		try {
 			User user = userRepository.getById(id);
 			return userMapper.toModel(user);
@@ -30,7 +31,7 @@ public class UserServiceImplimentation implements UserService {
 	}
 
 	@Override
-	public boolean adduser(UserDto userDto) {
+	public boolean adduser(UserModel userDto) {
 		return userRepository.save(userMapper.toEntity(userDto)) != null;
 	}
 

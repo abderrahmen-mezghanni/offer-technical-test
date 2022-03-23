@@ -1,9 +1,9 @@
-package com.technical.test.repository;
+package com.technical.test.repositories;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.technical.test.entity.User;
+import com.technical.test.entities.User;
 
 
 @Repository

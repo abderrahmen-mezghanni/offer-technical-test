@@ -1,4 +1,4 @@
-package com.technical.test.dto;
+package com.technical.test.models;
 
 public abstract class AbstractModel {
 

@@ -1,4 +1,4 @@
-package com.technical.test.entity;
+package com.technical.test.entities;
 
 
 import java.util.Date;
@@ -9,7 +9,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-import com.technical.test.enumeration.Gender;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -36,10 +35,10 @@ public class User extends AbstractEntity {
 	private String phoneNumber;
 	
 	@Column(name = "GENDER")
-	private Gender gender;
+	private String gender;
 
 
-	public User(String name, Date birthdate, String countryOfResidence, String phoneNumber, Gender gender) {
+	public User(String name, Date birthdate, String countryOfResidence, String phoneNumber, String gender) {
 		super();
 		this.name = name;
 		this.birthdate = birthdate;
