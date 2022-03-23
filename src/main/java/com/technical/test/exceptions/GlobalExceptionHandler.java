@@ -20,42 +20,38 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 
 @ControllerAdvice
 public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
-  @Override
-  protected ResponseEntity<Object> handleMethodArgumentNotValid(
-      MethodArgumentNotValidException ex, HttpHeaders headers,
-      HttpStatus status, WebRequest request) {
+	@Override
+	protected ResponseEntity<Object> handleMethodArgumentNotValid(MethodArgumentNotValidException ex,
+			HttpHeaders headers, HttpStatus status, WebRequest request) {
 
-    Map<String, List<String>> body = new HashMap<>();
+		Map<String, List<String>> body = new HashMap<>();
 
-    List<String> errors = ex.getBindingResult()
-        .getAllErrors()
-        .stream()
-        .map(DefaultMessageSourceResolvable::getDefaultMessage)
-        .collect(Collectors.toList());
+		List<String> errors = ex.getBindingResult().getAllErrors().stream()
+				.map(DefaultMessageSourceResolvable::getDefaultMessage).collect(Collectors.toList());
 
-    body.put("errors", errors);
+		body.put("errors", errors);
 
-    return new ResponseEntity<>(body, HttpStatus.BAD_REQUEST);
-  }
+		return new ResponseEntity<>(body, HttpStatus.BAD_REQUEST);
+	}
 
-  @ExceptionHandler(ResourceNotFoundException.class)
-  public ResponseEntity<?> resourceNotFoundException(ResourceNotFoundException ex, WebRequest request) {
-    Map<String, String> body = new HashMap<>();
+	@ExceptionHandler(ResourceNotFoundException.class)
+	public ResponseEntity<?> resourceNotFoundException(ResourceNotFoundException ex, WebRequest request) {
+		Map<String, String> body = new HashMap<>();
 
-    body.put("message", ex.getMessage());
+		body.put("message", ex.getMessage());
 
-    return new ResponseEntity<>(body, HttpStatus.NOT_FOUND);
-  }
+		return new ResponseEntity<>(body, HttpStatus.NOT_FOUND);
+	}
 
-  @ExceptionHandler(ConstraintViolationException.class)
-  public ResponseEntity<?> constraintViolationException(ConstraintViolationException ex, WebRequest request) {
-    List<String> errors = new ArrayList<>();
+	@ExceptionHandler(ConstraintViolationException.class)
+	public ResponseEntity<?> constraintViolationException(ConstraintViolationException ex, WebRequest request) {
+		List<String> errors = new ArrayList<>();
 
-    ex.getConstraintViolations().forEach(cv -> errors.add(cv.getMessage()));
+		ex.getConstraintViolations().forEach(cv -> errors.add(cv.getMessage()));
 
-    Map<String, List<String>> result = new HashMap<>();
-    result.put("errors", errors);
+		Map<String, List<String>> result = new HashMap<>();
+		result.put("errors", errors);
 
-    return new ResponseEntity<>(result, HttpStatus.BAD_REQUEST);
-  }
+		return new ResponseEntity<>(result, HttpStatus.BAD_REQUEST);
+	}
 }

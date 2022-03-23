@@ -31,8 +31,10 @@ public class UserServiceImplimentation implements UserService {
 	}
 
 	@Override
-	public boolean adduser(UserModel userDto) {
-		return userRepository.save(userMapper.toEntity(userDto)) != null;
+	public Long adduser(UserModel userDto) {
+		User user = userMapper.toEntity(userDto);
+		boolean isSaved = userRepository.save(user) != null;
+		return isSaved ? user.getId() : null;
 	}
 
 }

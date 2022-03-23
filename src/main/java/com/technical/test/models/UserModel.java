@@ -16,23 +16,23 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class UserModel extends AbstractModel{
-	
-    @NotBlank(message = "Name is mandatory")
+public class UserModel extends AbstractModel {
+
+	@NotBlank(message = "Name is mandatory")
 	private String name;
-	
-    @NotNull(message = "The date of birth is required.")
-    @BirthDate(message = "You must be an adult : age greater must be 18")
-    @Past(message = "The date of birth must be in the past.")
+
+	@NotNull(message = "The date of birth is required.")
+	@BirthDate(message = "You must be an adult : age greater must be 18")
+	@Past(message = "The date of birth must be in the past.")
 	private Date birthdate;
-	
-    @NotNull(message = "Country of residence is required.")
-    @Country(message = "You must be French residents  to register" )
+
+	@NotNull(message = "Country of residence is required.")
+	@Country(message = "You must be French residents  to register")
 	private String countryOfResidence;
-	
+
 	@Phone(message = "Phone must have this form : +33 X XX XX XX XX or 0X XX XX XX XX")
 	private String phoneNumber;
-	
+
 	@Gender(message = "Gender must be MALE, FEMALE or OTHER")
 	private String gender;
 
@@ -48,6 +48,5 @@ public class UserModel extends AbstractModel{
 	public UserModel() {
 		super();
 	}
-	
 
 }

@@ -17,7 +17,9 @@ import javax.validation.Payload;
 @Retention(RUNTIME)
 @Documented
 public @interface Phone {
-  String message() default "{com.technical.test.controller.constraints.Phone.message}";
-  Class <?> [] groups() default {};
-  Class <? extends Payload> [] payload() default {};
+	String message() default "{com.technical.test.controller.constraints.Phone.message}";
+
+	Class<?>[] groups() default {};
+
+	Class<? extends Payload>[] payload() default {};
 }

@@ -1,6 +1,5 @@
 package com.technical.test.controller.constraints;
 
-
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
 

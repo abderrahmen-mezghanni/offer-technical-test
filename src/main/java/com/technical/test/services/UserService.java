@@ -6,6 +6,6 @@ public interface UserService {
 
 	UserModel getuser(Long id);
 
-	boolean adduser(UserModel userdto);
+	Long adduser(UserModel userdto);
 
 }

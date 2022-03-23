@@ -10,15 +10,15 @@ public class UserPopulator extends AbstractPopulator<User, UserModel> {
 
 	@Override
 	public UserModel toModel(User user) {
-		UserModel userDto = new UserModel(user.getName(), user.getBirthdate(),
-				user.getCountryOfResidence(), user.getPhoneNumber(), user.getGender());
+		UserModel userDto = new UserModel(user.getName(), user.getBirthdate(), user.getCountryOfResidence(),
+				user.getPhoneNumber(), user.getGender());
 		return userDto;
 	}
 
 	@Override
 	public User toEntity(UserModel userDto) {
-		User user = new User(userDto.getName(), userDto.getBirthdate(),
-				userDto.getCountryOfResidence(), userDto.getPhoneNumber(), userDto.getGender());
+		User user = new User(userDto.getName(), userDto.getBirthdate(), userDto.getCountryOfResidence(),
+				userDto.getPhoneNumber(), userDto.getGender());
 		return user;
 	}
 
@@ -27,6 +27,5 @@ public class UserPopulator extends AbstractPopulator<User, UserModel> {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
 
 }
