@@ -21,7 +21,7 @@ public class UserServiceImplimentation implements UserService {
 	private UserPopulator userMapper;
 
 	@Override
-	public UserModel getuser(Long id) {
+	public UserModel getUser(Long id) {
 		try {
 			User user = userRepository.getById(id);
 			return userMapper.toModel(user);
@@ -31,7 +31,7 @@ public class UserServiceImplimentation implements UserService {
 	}
 
 	@Override
-	public Long adduser(UserModel userDto) {
+	public Long addUser(UserModel userDto) {
 		User user = userMapper.toEntity(userDto);
 		boolean isSaved = userRepository.save(user) != null;
 		return isSaved ? user.getId() : null;

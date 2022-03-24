@@ -4,8 +4,8 @@ import com.technical.test.models.UserModel;
 
 public interface UserService {
 
-	UserModel getuser(Long id);
+	UserModel getUser(Long id);
 
-	Long adduser(UserModel userdto);
+	Long addUser(UserModel userdto);
 
 }

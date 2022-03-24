@@ -24,13 +24,9 @@ public class InterceptRequests extends OncePerRequestFilter {
 		Long startTime = System.currentTimeMillis();
 
 		chain.doFilter(request, response);
-		MyRequestWrapper myRequestWrapper = new MyRequestWrapper((HttpServletRequest) request);
-		String Requestbody = myRequestWrapper.getBody();
-		myRequestWrapper = new MyRequestWrapper((HttpServletRequest) request);
-		String Responsebody = myRequestWrapper.getBody();
+
 
 		logger.info("Fonction called : {} and URI : {}", request.getMethod(), request.getRequestURI());
-		logger.info("Input : {} and OutPut : {}", Requestbody, Responsebody);
 		logger.info("Execution took {}ms", (System.currentTimeMillis() - startTime));
 
 	}

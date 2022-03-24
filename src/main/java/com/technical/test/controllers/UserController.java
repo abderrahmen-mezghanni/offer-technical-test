@@ -27,8 +27,8 @@ public class UserController {
 	private UserService userService;
 
 	@RequestMapping(value = "/user/{id}", method = RequestMethod.GET)
-	public UserModel getuser(@PathVariable("id") Long id) throws ResourceNotFoundException {
-		UserModel userDto = userService.getuser(id);
+	public UserModel getUser(@PathVariable("id") Long id) throws ResourceNotFoundException {
+		UserModel userDto = userService.getUser(id);
 		if (userDto == null) {
 			throw new ResourceNotFoundException("No user found with the Id: " + id);
 		}
@@ -37,8 +37,8 @@ public class UserController {
 	}
 
 	@RequestMapping(value = "/user", method = RequestMethod.POST, consumes = "application/json")
-	public ResponseEntity adduser(@Valid @RequestBody UserModel userDto) {
-		Long idCreatedUser = userService.adduser(userDto);
+	public ResponseEntity addUser(@Valid @RequestBody UserModel userDto) {
+		Long idCreatedUser = userService.addUser(userDto);
 		if (idCreatedUser != null) {
 			return new ResponseEntity<>("User added with Id : " + idCreatedUser, HttpStatus.OK);
 		} else {
